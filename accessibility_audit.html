@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WCAG 2.1 HTML-Only Audit & Compliance Form</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; background-color: #f8f8f8; }
+        header { text-align: center; background-color: #004d40; color: white; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+        form { max-width: 1000px; margin: 0 auto; padding: 25px; background-color: white; border-radius: 8px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
+        h1, h2, h3 { color: #004d40; }
+        fieldset { margin-bottom: 30px; padding: 20px; border: 2px solid #00796b; border-radius: 5px; }
+        legend { font-size: 1.3em; font-weight: bold; padding: 0 10px; color: #00796b; background-color: white; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input[type="text"], input[type="number"], input[type="date"], input[type="time"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+        }
+        button { padding: 15px 30px; background-color: #4caf50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1em; margin-top: 20px; }
+        button:hover { background-color: #388e3c; }
+        .description-list { margin-top: 10px; border: 1px solid #eee; padding: 10px; }
+        dt { font-weight: bold; margin-top: 5px; color: #2196f3; }
+        dd { margin-left: 20px; padding-bottom: 5px; }
+        input:invalid { border: 2px solid red; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🔬 WCAG 2.1 A.A.A. Compliance Audit</h1>
+        <p>A highly structured data capture tool for digital accessibility findings.</p>
+    </header>
+
+    <form action="/submit-audit-findings" method="POST" autocomplete="off">
+        
+        <fieldset role="group">
+            <legend>1. Audit Scope & Details</legend>
+
+            <label for="audit-date">Audit Date:</label>
+            <input type="date" id="audit-date" name="audit-date" required value="2025-11-29">
+            
+            <label for="auditor-email">Auditor Contact (Required):</label>
+            <input type="email" id="auditor-email" name="auditor-email" required placeholder="name@company.com">
+            
+            <label for="url">Target Page URL (Required):</label>
+            <input type="url" id="url" name="url" required placeholder="https://www.example.com/page-to-audit">
+
+            <label for="w3c-level">Target WCAG Compliance Level:</label>
+            <select id="w3c-level" name="w3c-level" required>
+                <option value="A">A (Required)</option>
+                <option value="AA" selected>AA (Most Common)</option>
+                <option value="AAA">AAA (Highest)</option>
+            </select>
+        </fieldset>
+
+        <fieldset role="group" aria-labelledby="finding-heading">
+            <legend id="finding-heading">2. Detailed Finding Record</legend>
+
+            <label for="wcag-criterion">WCAG Success Criterion (e.g., 1.1.1):</label>
+            <input type="text" id="wcag-criterion" name="wcag-criterion" required 
+                   pattern="[0-9]{1}\.[0-9]{1}\.[0-9]{1}" 
+                   placeholder="e.g., 2.4.4" 
+                   title="Must be in the format X.Y.Z (e.g., 1.1.1)">
+            <label for="element-type">Failing HTML Element Type:</label>
+            <input type="text" id="element-type" name="element-type" list="element-options" placeholder="e.g., button, img, a, form">
+            <datalist id="element-options">
+                <option value="a (Link)">
+                <option value="img (Image)">
+                <option value="button">
+                <option value="form">
+                <option value="h1-h6 (Heading)">
+            </datalist>
+
+            <label for="severity" id="severity-label">Severity Level (1-10):</label>
+            <input type="range" id="severity" name="severity" min="1" max="10" step="1" value="5" list="severity-marks">
+            <datalist id="severity-marks">
+                <option value="1" label="Low"></option>
+                <option value="5" label="Medium"></option>
+                <option value="10" label="Critical"></option>
+            </datalist>
+            <p id="severity-desc" style="font-style: italic;">1=Minor Issue, 10=Blocker/Critical Fail.</p>
+            <input type="number" name="severity-display" min="1" max="10" value="5" style="width: 50px; display: inline-block;" aria-describedby="severity-desc">
+
+            <label for="recommendation">Remediation Recommendation:</label>
+            <textarea id="recommendation" name="recommendation" rows="6" required aria-required="true" 
+                      placeholder="Describe the fix: e.g., 'Add a meaningful alt attribute to the image.'"></textarea>
+
+        </fieldset>
+        
+        <fieldset>
+            <legend>3. Remediation Estimation and Glossary</legend>
+
+            <h3>Estimated Effort Table (Mandatory Field):</h3>
+            <table role="presentation">
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Estimated Hours</th>
+                        <th>Completion Deadline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Developer</td>
+                        <td><input type="number" name="dev-hours" min="0.5" step="0.5" required placeholder="0.5"></td>
+                        <td><input type="date" name="dev-deadline" required></td>
+                    </tr>
+                    <tr>
+                        <td>Content Specialist</td>
+                        <td><input type="number" name="content-hours" min="0" step="0.5" placeholder="0"></td>
+                        <td><input type="date" name="content-deadline"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Key Accessibility Glossary</h3>
+            <dl class="description-list">
+                <dt>WCAG</dt>
+                <dd>Web Content Accessibility Guidelines. The international standard for web accessibility.</dd>
+                <dt>ARIA</dt>
+                <dd>Accessible Rich Internet Applications. Used to enhance HTML semantics for assistive technologies.</dd>
+            </dl>
+            <details style="margin-top: 15px;">
+                <summary>Click for ARIA Quick Reference</summary>
+                <p>The <code>aria-describedby</code> attribute is used above to link the **Severity Level** input to its explanatory text.</p>
+            </details>
+        </fieldset>
+
+        <div style="text-align: center;">
+            <button type="submit">Finalize & Submit Audit Report</button>
+        </div>
+
+        <footer>
+            <p style="text-align: center; margin-top: 25px; font-size: 0.8em; color: #555;">
+                This project utilizes **HTML5 Constraint Validation** and **ARIA attributes** for enhanced accessibility and data structure. 
+                
+            </p>
+        </footer>
+
+    </form>
+</body>
+</html>
