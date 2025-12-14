@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hridoy Debnath — Advanced Portfolio</title>
+  <style>
+    body {font-family: Arial, sans-serif; margin:0; background:#eef1f7;}
+    header {background:#0b3d91; color:white; padding:50px 20px; text-align:center;}
+    nav {background:#fff; padding:15px; text-align:center; position:sticky; top:0; box-shadow:0 2px 5px rgba(0,0,0,0.1);} 
+    nav a {margin:0 18px; text-decoration:none; color:#0b3d91; font-weight:bold; font-size:15px;} 
+    section {padding:50px 25px; max-width:1000px; margin:auto; background:white; margin-top:25px; border-radius:10px;}
+    h2 {color:#0b3d91; margin-bottom:20px;}
+    .skills span {display:inline-block; background:#0b3d91; color:white; padding:10px 16px; margin:6px; border-radius:4px; font-size:14px;}
+    .project {border:1px solid #ddd; padding:20px; margin:15px 0; border-radius:8px; background:#fafafa; box-shadow:0 1px 4px rgba(0,0,0,0.08);} 
+    .gallery img {width:31%; margin:1%; border-radius:8px;} 
+    .progress-container {margin:10px 0;} 
+    .progress-label {font-weight:bold;} 
+    progress {width:100%; height:18px;} 
+    .contact-box input, .contact-box textarea {width:100%; padding:12px; margin-top:8px; border-radius:4px; border:1px solid #ccc;} 
+    .contact-box button {background:#0b3d91; color:white; padding:12px 20px; border:none; border-radius:4px; margin-top:10px; cursor:pointer;} 
+    .testimonial {background:#f3f7ff; padding:18px; border-left:4px solid #0b3d91; margin:15px 0; border-radius:6px;} 
+    footer {background:#0b3d91; color:white; text-align:center; padding:30px; margin-top:40px;} 
+    .cv-btn {background:#28a745; color:white; padding:12px 20px; border-radius:4px; text-decoration:none;} 
+  </style>
+  <style>
+    /* Additional upgrades */
+    html {scroll-behavior:smooth;}
+    .toggle-btn {position:fixed; right:20px; top:20px; background:#0b3d91; color:#fff; padding:10px 16px; border-radius:6px; cursor:pointer;}
+    body.dark {background:#121212; color:#e0e0e0;}
+    body.dark section {background:#1e1e1e;}
+    body.dark nav, body.dark header, body.dark footer {background:#0d1b2a;}
+    body.dark nav a {color:#fff;}
+    .typing {border-right:3px solid; white-space:nowrap; overflow:hidden; animation: typing 3s steps(20), blink .75s step-end infinite alternate;}    
+    @keyframes typing {from {width:0;} to {width:100%;}}
+    @keyframes blink {50% {border-color:transparent;}}
+    .loader {position:fixed; top:0; left:0; width:100%; height:100%; background:#fff; display:flex; justify-content:center; align-items:center; font-size:28px; z-index:9999;}
+  </style>
+</head>
+<body>
+<div class="loader">Loading Portfolio...</div>
+<div class="toggle-btn" onclick="toggleMode()">🌙</div>
+
+<header>
+  <h1 class="typing">Hridoy Debnath</h1>
+  <h1>Hridoy Debnath</h1>
+  <p>Full Stack Developer | Software Engineer | Automation Expert</p>
+  <p><a href="www.linkedin.com/in/hridoy-debnath" style="color:#cce0ff;">LinkedIn</a></p>
+  <a href="CV.pdf" class="cv-btn">Download CV</a>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#progress">Skill Progress</a>
+  <a href="#projects">Projects</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#achievements">Achievements</a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#education">Education</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>I am Hridoy Debnath, an enthusiastic software engineer passionate about solving real-world problems using advanced technologies. I specialize in full-stack development, data analysis, automation, and intelligent multi-agent systems. I constantly explore modern technologies to build systems that are scalable, efficient, and intelligent.</p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Django</span><span>SQL</span><span>Machine Learning</span><span>Data Analysis</span><span>Google Apps Script</span><span>Git & GitHub</span><span>Automation</span>
+  </div>
+</section>
+
+<section id="progress">
+  <h2>Skill Progress</h2>
+  <div class="progress-container">
+    <p class="progress-label">Python</p>
+    <progress value="90" max="100"></progress>
+  </div>
+  <div class="progress-container">
+    <p class="progress-label">JavaScript</p>
+    <progress value="75" max="100"></progress>
+  </div>
+  <div class="progress-container">
+    <p class="progress-label">Machine Learning</p>
+    <progress value="80" max="100"></progress>
+  </div>
+  <div class="progress-container">
+    <p class="progress-label">Google Apps Script</p>
+    <progress value="95" max="100"></progress>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>My Projects</h2>
+
+  <div class="project">
+    <h3>Delay & Energy Aware Multi-UAV & UGV Data Collection System</h3>
+    <p>A complete research simulation using Modified Mean-Shift Clustering, DQL, MAPPO, obstacle avoidance, recharge handling, and 3D UAV-UGV coordination.</p>
+  </div>
+
+  <div class="project">
+    <h3>Advanced Bangladesh News Portal (HTML-only)</h3>
+    <p>Dark mode, bookmarking, admin UI, multi-page structure — fully HTML-only advanced system.</p>
+  </div>
+
+  <div class="project">
+    <h3>Inventory & Sales Management</h3>
+    <p>Includes invoice, stock control, reporting, user roles & MIS dashboards.</p>
+  </div>
+
+  <div class="project">
+    <h3>Google Apps Script Automation Suite</h3>
+    <p>Auto time entry, approval workflow, data sync, validation, smart updates.</p>
+  </div>
+
+</section>
+
+<section id="gallery">
+  <h2>Project Gallery</h2>
+  <div class="gallery">
+    <img src="https://via.placeholder.com/300">
+    <img src="https://via.placeholder.com/300">
+    <img src="https://via.placeholder.com/300">
+  </div>
+</section>
+
+<section id="achievements">
+  <h2>Achievements</h2>
+  <ul>
+    <li>Developed a complete UAV–UGV coordination research model.</li>
+    <li>Built 50+ automation systems for corporate companies.</li>
+    <li>Designed multiple full-stack apps and dashboards.</li>
+  </ul>
+</section>
+
+<section id="testimonials">
+  <h2>Testimonials</h2>
+  <div class="testimonial">“Hridoy is highly skilled in automation and backend development.”</div>
+  <div class="testimonial">“Delivered complex automation tasks with precision.”</div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <ul>
+    <li>BSc in Computer Science & Engineering — Running</li>
+    <li>HSC — Science</li>
+    <li>SSC — Science</li>
+  </ul>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <ul>
+    <li>Software & Automation Developer — Freelance</li>
+    <li>Corporate MIS Automation Specialist</li>
+    <li>Full Stack & Backend Developer</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form class="contact-box">
+    <label>Name</label>
+    <input type="text" placeholder="Your name">
+
+    <label>Email</label>
+    <input type="email" placeholder="your@gmail.com">
+
+    <label>Message</label>
+    <textarea rows="5" placeholder="Write your message..."></textarea>
+
+    <button>Send</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Hridoy Debnath — Advanced Portfolio</p>
+</footer>
+<script>
+    // Dark/Light toggle
+    function toggleMode(){ document.body.classList.toggle('dark'); }
+    // Loader
+    window.onload = () => { document.querySelector('.loader').style.display = 'none'; };
+</script>
+</body>
+</html>

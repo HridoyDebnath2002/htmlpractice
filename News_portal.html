@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh News Portal - HTML Only</title>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>📰 Bangladesh News 24</h1>
+        <p>Latest & Trusted News Portal of Bangladesh</p>
+
+        <nav>
+            <a href="#breaking">Breaking News</a> |
+            <a href="#national">National</a> |
+            <a href="#international">International</a> |
+            <a href="#sports">Sports</a> |
+            <a href="#entertainment">Entertainment</a> |
+            <a href="#tech">Tech</a> |
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <!-- MAIN LAYOUT USING TABLE -->
+    <table width="100%" cellpadding="15">
+        <tr>
+
+            <!-- Sidebar -->
+            <td width="25%" valign="top">
+                <aside>
+                    <h3>📁 Categories</h3>
+                    <ul>
+                        <li>National</li>
+                        <li>Politics</li>
+                        <li>Economy</li>
+                        <li>Sports</li>
+                        <li>Entertainment</li>
+                        <li>Technology</li>
+                        <li>Health</li>
+                    </ul>
+
+                    <details>
+                        <summary>More Sections</summary>
+                        <ul>
+                            <li>Education</li>
+                            <li>Travel</li>
+                            <li>Lifestyle</li>
+                        </ul>
+                    </details>
+
+                    <h3>📊 Poll of the Day</h3>
+                    <p>Do you support digital Bangladesh?</p>
+                    <meter value="0.8">80%</meter>
+                </aside>
+            </td>
+
+            <!-- Main Content -->
+            <td valign="top">
+
+                <!-- BREAKING NEWS -->
+                <section id="breaking">
+                    <h2>🚨 Breaking News</h2>
+
+                    <marquee behavior="scroll" direction="left">
+                        জাতীয় নির্বাচন আসন্ন — বিভিন্ন দলের প্রচারনা জোরদার।
+                        দেশের উত্তরাঞ্চলে শৈত্যপ্রবাহ — জনজীবন ব্যাহত।
+                        রপ্তানি খাতে নতুন রেকর্ড — অর্থনীতিতে ইতিবাচক প্রভাব।
+                    </marquee>
+
+                    <figure>
+                        <img src="https://via.placeholder.com/400" alt="Breaking News Image">
+                        <figcaption>Live Breaking News Update</figcaption>
+                    </figure>
+                </section>
+
+                <hr>
+
+                <!-- NATIONAL NEWS -->
+                <section id="national">
+                    <h2>🇧🇩 National News</h2>
+
+                    <article>
+                        <h3>ঢাকায় মেট্রোরেল সম্প্রসারণ প্রকল্পের অগ্রগতি</h3>
+                        <p>ঢাকায় চলমান মেট্রোরেল প্রকল্পে নতুন রুট যুক্ত হচ্ছে...</p>
+
+                        <details>
+                            <summary>Read More</summary>
+                            <p>প্রকল্পটি সম্পন্ন হলে রাজধানীর যানজট অনেকটাই কমে যাবে...</p>
+                        </details>
+                    </article>
+
+                    <article>
+                        <h3>চট্টগ্রামে বন্দর কার্যক্রমে নতুন প্রযুক্তি যোগ</h3>
+                        <p>আধুনিক টার্মিনাল ব্যবস্থাপনা চালু হয়েছে...</p>
+                    </article>
+
+                </section>
+
+                <hr>
+
+                <!-- INTERNATIONAL NEWS -->
+                <section id="international">
+                    <h2>🌍 International News</h2>
+
+                    <article>
+                        <h3>বিশ্বব্যাপী অর্থনৈতিক ভারসাম্যহীনতা</h3>
+                        <p>বিভিন্ন দেশের কেন্দ্রীয় ব্যাংক সুদের হার কমিয়েছে...</p>
+                    </article>
+
+                    <figure>
+                        <img src="https://via.placeholder.com/350" alt="World News">
+                        <figcaption>Global News Highlights</figcaption>
+                    </figure>
+                </section>
+
+                <hr>
+
+                <!-- SPORTS -->
+                <section id="sports">
+                    <h2>🏆 Sports</h2>
+
+                    <article>
+                        <h3>বাংলাদেশ দলের দুর্দান্ত জয়</h3>
+                        <p>টি-২০ ম্যাচে জিম্বাবুয়ের বিপক্ষে ৫ উইকেটে জয়...</p>
+
+                        <audio controls>
+                            <source src="sports-audio.mp3" type="audio/mp3">
+                        </audio>
+                    </article>
+
+                    <article>
+                        <h3>ফুটবল লিগে নতুন চমক</h3>
+                        <p>ঢাকা আবাহনী দলে নতুন বিদেশি তারকা খেলোয়াড়...</p>
+                    </article>
+                </section>
+
+                <hr>
+
+                <!-- ENTERTAINMENT -->
+                <section id="entertainment">
+                    <h2>🎬 Entertainment</h2>
+
+                    <article>
+                        <h3>নতুন বাংলা ছবির শুটিং শুরু</h3>
+                        <p>জনপ্রিয় অভিনেতাদের অভিনয়ে আধুনিক গল্প...</p>
+
+                        <video width="350" controls>
+                            <source src="movie-trailer.mp4" type="video/mp4">
+                        </video>
+                    </article>
+                </section>
+
+                <hr>
+
+                <!-- TECH NEWS -->
+                <section id="tech">
+                    <h2>💻 Technology</h2>
+
+                    <article>
+                        <h3>বাংলাদেশে 5G সেবা সম্প্রসারিত</h3>
+                        <p>নতুন শহরগুলিতে দ্রুত ইন্টারনেট সুবিধা...</p>
+
+                        <pre>
+<code>
+Tech Update:
+Internet Speed: 1Gbps
+Coverage: 12 Cities
+Status: Active
+</code>
+                        </pre>
+                    </article>
+
+                    <h3>Tech Sites</h3>
+                    <iframe src="https://www.example.com" width="350" height="200"></iframe>
+
+                </section>
+
+                <hr>
+
+                <!-- CONTACT -->
+                <section id="contact">
+                    <h2>📩 Contact Us</h2>
+
+                    <form>
+                        <label>Your Name:</label><br>
+                        <input type="text"><br><br>
+
+                        <label>Email:</label><br>
+                        <input type="email"><br><br>
+
+                        <label>Message:</label><br>
+                        <textarea rows="4" cols="40"></textarea><br><br>
+
+                        <button>Send</button>
+                    </form>
+
+                    <address>
+                        Bangladesh News 24 <br>
+                        Dhaka, Bangladesh <br>
+                        Email: info@bdnews24.com
+                    </address>
+                </section>
+
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Bangladesh News Portal — HTML Only Project</p>
+    </footer>
+
+</body>
+</html>

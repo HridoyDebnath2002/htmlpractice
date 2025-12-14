@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - HTML Only</title>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>📊 Admin Dashboard</h1>
+        <p>Welcome, Administrator</p>
+        <nav>
+            <a href="#overview">Overview</a> |
+            <a href="#users">Users</a> |
+            <a href="#reports">Reports</a> |
+            <a href="#settings">Settings</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <!-- Layout Table (used instead of CSS grid) -->
+    <table border="1" width="100%" cellpadding="15">
+        <tr>
+            <!-- Sidebar -->
+            <td width="20%" valign="top">
+                <aside>
+                    <h2>📁 Menu</h2>
+                    <ul>
+                        <li><a href="#overview">Dashboard Home</a></li>
+                        <li><a href="#users">User Management</a></li>
+                        <li><a href="#reports">Reports</a></li>
+                        <li><a href="#settings">Settings</a></li>
+                        <li><a href="#help">Help</a></li>
+                    </ul>
+
+                    <details>
+                        <summary>More Options</summary>
+                        <ul>
+                            <li>Notifications</li>
+                            <li>Activity Log</li>
+                            <li>System Status</li>
+                        </ul>
+                    </details>
+
+                </aside>
+            </td>
+
+            <!-- Main Content -->
+            <td valign="top">
+
+                <!-- Dashboard Overview -->
+                <section id="overview">
+                    <h2>📌 Dashboard Overview</h2>
+                    <p>Admin dashboard summary and statistics.</p>
+
+                    <!-- Stats using table -->
+                    <table border="1" cellpadding="10" width="100%">
+                        <tr>
+                            <th>Total Users</th>
+                            <th>Active Sessions</th>
+                            <th>New Reports</th>
+                        </tr>
+                        <tr>
+                            <td>120</td>
+                            <td>15</td>
+                            <td>3</td>
+                        </tr>
+                    </table>
+
+                    <br>
+
+                    <h3>Server Load</h3>
+                    <meter value="0.6">60%</meter>
+
+                    <h3>Database Storage</h3>
+                    <progress value="70" max="100"></progress>
+
+                </section>
+
+                <hr>
+
+                <!-- Users Management -->
+                <section id="users">
+                    <h2>👥 User Management</h2>
+
+                    <table border="1" cellpadding="10" width="100%">
+                        <caption>User List</caption>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Hridoy</td>
+                            <td>hridoy@example.com</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Sumon</td>
+                            <td>sumon@example.com</td>
+                            <td>Disabled</td>
+                        </tr>
+                    </table>
+
+                    <h3>Add New User</h3>
+                    <form>
+                        <label>Name:</label><br>
+                        <input type="text"><br><br>
+
+                        <label>Email:</label><br>
+                        <input type="email"><br><br>
+
+                        <label>Status:</label><br>
+                        <select>
+                            <option>Active</option>
+                            <option>Disabled</option>
+                        </select><br><br>
+
+                        <button>Add User</button>
+                    </form>
+                </section>
+
+                <hr>
+
+                <!-- Reports Section -->
+                <section id="reports">
+                    <h2>📄 Reports</h2>
+                    <p>Download and view system reports.</p>
+
+                    <details>
+                        <summary>Daily Reports</summary>
+                        <p>Daily financial, user, and system activity reports.</p>
+                    </details>
+
+                    <details>
+                        <summary>Monthly Reports</summary>
+                        <p>Monthly sales, revenue, and performance reports.</p>
+                    </details>
+
+                    <figure>
+                        <img src="https://via.placeholder.com/300" alt="Report Image">
+                        <figcaption>Example Report Chart</figcaption>
+                    </figure>
+
+                </section>
+
+                <hr>
+
+                <!-- Settings -->
+                <section id="settings">
+                    <h2>⚙️ Settings</h2>
+
+                    <form>
+                        <label>Admin Name:</label><br>
+                        <input type="text" value="Administrator"><br><br>
+
+                        <label>Timezone:</label><br>
+                        <input type="text" value="GMT +6"><br><br>
+
+                        <label>Enable Email Notifications:</label><br>
+                        <input type="checkbox" checked> Yes<br><br>
+
+                        <button>Save Settings</button>
+                    </form>
+
+                    <h3>System Info</h3>
+                    <pre>
+<code>
+OS: Linux Server 4.0
+Storage: 250 GB
+RAM: 16 GB
+Status: Running
+</code>
+                    </pre>
+
+                </section>
+
+                <hr>
+
+                <!-- Help Section -->
+                <section id="help">
+                    <h2>❓ Help & Support</h2>
+
+                    <p>For support, contact:</p>
+
+                    <address>
+                        Admin Support <br>
+                        Email: admin@dashboard.com <br>
+                        Dhaka, Bangladesh
+                    </address>
+
+                </section>
+
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Admin Dashboard — HTML Only Project</p>
+    </footer>
+
+</body>
+</html>

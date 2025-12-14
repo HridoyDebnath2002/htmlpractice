@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Storefront - ShopNow</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">🛒 **ShopNow**</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon" id="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>🔥 Featured Products</h2>
+        <div class="product-grid" id="product-grid">
+            <div class="product-card" data-id="101" data-name="Noise Cancelling Headphones" data-price="199.99">
+                <img src="https://via.placeholder.com/300x200/555/fff?text=Headphones" alt="Noise Cancelling Headphones">
+                <h3>Noise Cancelling Headphones</h3>
+                <p class="price">**$199.99**</p>
+                <button class="btn add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card" data-id="102" data-name="Smartwatch Pro" data-price="249.00">
+                <img src="https://via.placeholder.com/300x200/999/fff?text=Smartwatch" alt="Smartwatch Pro">
+                <h3>Smartwatch Pro</h3>
+                <p class="price">**$249.00**</p>
+                <button class="btn add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card" data-id="103" data-name="Portable Power Bank" data-price="45.50">
+                <img src="https://via.placeholder.com/300x200/333/fff?text=Power+Bank" alt="Portable Power Bank">
+                <h3>Portable Power Bank</h3>
+                <p class="price">**$45.50**</p>
+                <button class="btn add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+        </div>
+    </main>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>🛍️ Your Shopping Cart</h2>
+            <div id="cart-items">
+                <p>Your cart is empty.</p>
+            </div>
+            <div class="cart-summary">
+                <p>Subtotal: **$<span id="cart-subtotal">0.00</span>**</p>
+                <button class="btn checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ShopNow | E-commerce Prototype.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

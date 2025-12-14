@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bangladesh News 24 — Advanced Demo</title>
+  <meta name="description" content="Advanced multi-page style news portal (single-file demo) with responsive layout, search, bookmarks, dark mode, admin preview" />
+
+  <!-- Embedded CSS (responsive, accessible) -->
+  <style>
+    :root{
+      --bg:#fff;--text:#111;--muted:#555;--accent:#c62828;--card:#f7f7f7;
+    }
+    [data-theme="dark"]{--bg:#0f1113;--text:#e6eef2;--muted:#9aa6ad;--card:#121416}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+    header{padding:18px 20px;border-bottom:1px solid #ddd;background:linear-gradient(90deg,rgba(0,0,0,0.02),transparent)}
+    .container{max-width:1100px;margin:18px auto;padding:0 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{font-size:20px;margin:0}
+    nav{margin-top:10px}
+    nav a{margin-right:12px;text-decoration:none;color:var(--muted);font-size:14px}
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:18px}
+    .card{background:var(--card);padding:14px;border-radius:8px}
+    .hero{display:flex;gap:14px;align-items:center}
+    .hero img{width:320px;height:180px;object-fit:cover;border-radius:6px}
+    .list .item{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed #e5e5e5}
+    .list .item:last-child{border-bottom:none}
+    .list img{width:120px;height:70px;object-fit:cover;border-radius:4px}
+    aside .small{font-size:13px;color:var(--muted)}
+    footer{padding:20px 0;border-top:1px solid #ddd;margin-top:30px;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:880px){.grid{grid-template-columns:1fr}.hero img{width:140px;height:90px}}
+
+    /* Controls */
+    .controls{display:flex;gap:8px;align-items:center}
+    .btn{padding:8px 10px;border-radius:6px;border:1px solid #ccc;background:none;cursor:pointer}
+    .btn.primary{background:var(--accent);color:#fff;border:none}
+    input[type=search]{padding:8px;border-radius:6px;border:1px solid #ccc;width:220px}
+
+    /* Article page */
+    .article-title{font-size:22px;margin:8px 0}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:12px}
+    .content p{margin-bottom:12px}
+
+    /* Accessible focus */
+    a:focus,input:focus,button:focus{outline:3px solid rgba(100,150,220,0.25);outline-offset:2px}
+
+    /* Tiny admin UI */
+    #adminPanel{display:none;position:fixed;right:12px;bottom:12px;background:var(--card);padding:10px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.1)}
+    #adminPanel.open{display:block}
+    textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ccc}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="brand">
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><rect width='40' height='40' fill='%23c62828'/><text x='50%' y='55%' font-size='18' fill='white' text-anchor='middle' font-family='Arial'>BD</text></svg>" alt="logo" width="40" height="40">
+        <div>
+          <h1>Bangladesh News 24</h1>
+          <div style="font-size:13px;color:var(--muted)">Trusted • Fast • Advanced Demo</div>
+        </div>
+        <div style="margin-left:auto" class="controls">
+          <label for="themeToggle" class="small">Dark</label>
+          <button id="themeToggle" class="btn" aria-pressed="false">Toggle</button>
+          <button id="openAdmin" class="btn" title="Open admin demo">Admin</button>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#national">জাতীয়</a>
+        <a href="#international">আন্তর্জাতিক</a>
+        <a href="#sports">খেলা</a>
+        <a href="#business">অর্থনীতি</a>
+        <a href="#tech">টেক</a>
+        <a href="#contact">যোগাযোগ</a>
+        <span style="float:right">
+          <input id="search" type="search" placeholder="Search articles..." aria-label="Search articles">
+          <button id="clearSearch" class="btn">Clear</button>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="app">
+
+    <!-- Grid: main + aside -->
+    <div class="grid">
+      <section aria-labelledby="topstories">
+
+        <!-- HERO -->
+        <div class="card hero" role="region" aria-labelledby="topstories">
+          <div>
+            <h2 id="topstories">Top Stories</h2>
+            <h3 class="article-title" id="heroTitle">মেট্রোরেল সম্প্রসারণ: কাজ শেষের দিকে</h3>
+            <div class="meta">By Editor • <time datetime="2025-11-22">22 Nov 2025</time></div>
+            <p class="lead">রাজধানীর মেট্রোরেল সম্প্রসারণ প্রকল্পে গুরুত্বপূর্ণ অগ্রগতি — নতুন স্টেশনগুলোতে প্রস্তুতি শেষের পথে।</p>
+            <div style="margin-top:10px">
+              <button class="btn primary" id="readHero">Read Article</button>
+              <button class="btn" id="bookmarkHero">Bookmark</button>
+            </div>
+          </div>
+          <img src="https://via.placeholder.com/320x180" alt="Metro expansion">
+        </div>
+
+        <!-- Latest list -->
+        <div class="card list" aria-live="polite">
+          <h3>Latest News</h3>
+          <div id="list">
+            <!-- Items injected by JS in demo file -->
+          </div>
+        </div>
+
+      </section>
+
+      <aside>
+        <div class="card">
+          <h4>Popular</h4>
+          <ul id="popularList" class="small">
+            <!-- filled by JS -->
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h4>Bookmarks</h4>
+          <div id="bookmarks" class="small">No bookmarks yet</div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h4>Subscribe</h4>
+          <form id="subscribeForm">
+            <label for="email">Email</label><br>
+            <input id="email" type="email" placeholder="you@example.com" required><br><br>
+            <button class="btn">Subscribe</button>
+          </form>
+          <div id="subMsg" class="small" aria-live="polite"></div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Article detail template (hidden) -->
+    <article id="articlePage" class="card hidden" aria-hidden="true">
+      <button id="backBtn" class="btn">← Back</button>
+      <h2 id="articleTitle" class="article-title">Article title</h2>
+      <div class="meta" id="articleMeta">By ...</div>
+      <div class="content" id="articleContent">
+        <p>Article content...</p>
+      </div>
+    </article>
+
+    <!-- Admin Panel (demo) -->
+    <div id="adminPanel" aria-hidden="true">
+      <strong>Admin Demo</strong>
+      <p class="small">Create a new article (client-side demo)</p>
+      <form id="adminForm">
+        <label>Title</label><br>
+        <input id="aTitle" type="text" required><br><br>
+        <label>Category</label><br>
+        <select id="aCategory"><option>National</option><option>International</option><option>Sports</option><option>Business</option><option>Tech</option></select><br><br>
+        <label>Content</label><br>
+        <textarea id="aContent" rows="6" required></textarea><br><br>
+        <button class="btn primary">Create</button>
+        <button type="button" class="btn" id="closeAdmin">Close</button>
+      </form>
+      <hr>
+      <small>Note: This admin panel is a client-side demo. To publish for real you need a server.</small>
+    </div>
+
+    <footer>
+      <div class="container">
+        <small>© 2025 Bangladesh News 24 — Advanced demo • Built with HTML/CSS/JS (single-file)</small>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Embedded JS: search, bookmarks, articles (works entirely client-side) -->
+  <script>
+    (function(){
+      // Sample articles data
+      const articles = [
+        {id:1,title:'মেট্রোরেল সম্প্রসারণ: কাজ শেষের দিকে',category:'National',date:'2025-11-22',lead:'রাজধানীর মেট্রোরেল সম্প্রসারণ প্রকল্পে গুরুত্বপূর্ণ অগ্রগতি।',content:'সম্পূর্ণ আর্টিকেলের ধাপে ধাপে বর্ণনা...'},
+        {id:2,title:'রপ্তানি বৃদ্ধি: অর্থনীতিতে ইতিবাচক সংকেত',category:'Business',date:'2025-11-21',lead:'রপ্তানি আয় উল্লেখযোগ্য বৃদ্ধি পেয়েছে।',content:'রপ্তানি বৃদ্ধি সম্পর্কে বিশ্লেষণ...'},
+        {id:3,title:'বাংলাদেশ বনাম ভারত সিরিজ ঘোষণা',category:'Sports',date:'2025-11-20',lead:'৩ ম্যাচের টি২০ ও ২ ম্যাচের ওয়ানডে সিরিজ অনুষ্ঠিত হবে।',content:'সিরিজের বিস্তারিত সূচি ও প্রত্যাশা...'},
+        {id:4,title:'দেশে 5G সেবা সম্প্রসারিত',category:'Tech',date:'2025-11-19',lead:'নতুন শহরগুলিতে দ্রুত ইন্টারনেট সুবিধা।',content:'5G সম্প্রসারণ ও প্রভাব...'},
+      ];
+
+      // Elements
+      const listEl = document.getElementById('list');
+      const popularEl = document.getElementById('popularList');
+      const bookmarksEl = document.getElementById('bookmarks');
+      const searchInput = document.getElementById('search');
+      const clearSearch = document.getElementById('clearSearch');
+      const articlePage = document.getElementById('articlePage');
+      const articleTitle = document.getElementById('articleTitle');
+      const articleMeta = document.getElementById('articleMeta');
+      const articleContent = document.getElementById('articleContent');
+      const backBtn = document.getElementById('backBtn');
+      const readHero = document.getElementById('readHero');
+      const bookmarkHero = document.getElementById('bookmarkHero');
+
+      // theme
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlEl = document.documentElement;
+      const storedTheme = localStorage.getItem('theme');
+      if(storedTheme) htmlEl.setAttribute('data-theme', storedTheme);
+      themeToggle.addEventListener('click', ()=>{
+        const now = htmlEl.getAttribute('data-theme') === 'dark' ? 'light':'dark';
+        htmlEl.setAttribute('data-theme', now);
+        localStorage.setItem('theme', now);
+      });
+
+      // admin
+      const openAdmin = document.getElementById('openAdmin');
+      const adminPanel = document.getElementById('adminPanel');
+      const closeAdmin = document.getElementById('closeAdmin');
+      openAdmin.addEventListener('click', ()=>{adminPanel.classList.toggle('open');adminPanel.setAttribute('aria-hidden', !adminPanel.classList.contains('open'))});
+      closeAdmin.addEventListener('click', ()=>{adminPanel.classList.remove('open');adminPanel.setAttribute('aria-hidden','true')});
+
+      // render list
+      function renderList(items){
+        listEl.innerHTML = '';
+        items.forEach(a=>{
+          const div = document.createElement('div');div.className='item';
+          div.innerHTML = `<img src='https://via.placeholder.com/120x70' alt='thumb'><div><strong>${a.title}</strong><div class='meta'>${a.category} • ${a.date}</div><p style='margin:6px 0'>${a.lead}</p><div><button class='btn' data-id='${a.id}'>Read</button> <button class='btn' data-book='${a.id}'>★</button></div></div>`;
+          listEl.appendChild(div);
+        });
+      }
+
+      function renderPopular(){
+        popularEl.innerHTML='';
+        articles.slice(0,4).forEach(a=>{const li=document.createElement('li');li.textContent=a.title;popularEl.appendChild(li)});
+      }
+
+      // bookmarks
+      function getBookmarks(){try{return JSON.parse(localStorage.getItem('bookmarks')||'[]')}catch(e){return[]}}
+      function saveBookmarks(list){localStorage.setItem('bookmarks', JSON.stringify(list));renderBookmarks()}
+      function renderBookmarks(){const b=getBookmarks();if(!b.length){bookmarksEl.textContent='No bookmarks yet';return}bookmarksEl.innerHTML='';b.forEach(id=>{const art=articles.find(x=>x.id===id);if(art){const d=document.createElement('div');d.innerHTML=`<strong>${art.title}</strong> <button class='btn' data-rm='${id}'>Remove</button>`;bookmarksEl.appendChild(d)}})}
+
+      // open article
+      function openArticle(id){const a=articles.find(x=>x.id===+id);if(!a) return;articleTitle.textContent=a.title;articleMeta.textContent=`${a.category} • ${a.date}`;articleContent.innerHTML=`<p>${a.content}</p>`;articlePage.classList.remove('hidden');articlePage.setAttribute('aria-hidden','false');articlePage.scrollIntoView({behavior:'smooth'});}
+
+      // events
+      listEl.addEventListener('click', (e)=>{const read=e.target.closest('button[data-id]'); if(read){openArticle(read.getAttribute('data-id'));} const bk=e.target.closest('button[data-book]'); if(bk){const id=+bk.getAttribute('data-book');const cur=getBookmarks(); if(!cur.includes(id)){cur.push(id);saveBookmarks(cur)} }});
+      bookmarksEl.addEventListener('click', (e)=>{const rm=e.target.closest('button[data-rm]'); if(rm){const id=+rm.getAttribute('data-rm');const cur=getBookmarks().filter(x=>x!==id);saveBookmarks(cur)}});
+      backBtn.addEventListener('click', ()=>{articlePage.classList.add('hidden');articlePage.setAttribute('aria-hidden','true');window.scrollTo({top:0,behavior:'smooth'});});
+
+      // search
+      function doSearch(q){q=q.trim().toLowerCase(); if(!q){renderList(articles);return} renderList(articles.filter(a=>a.title.toLowerCase().includes(q)||a.content.toLowerCase().includes(q)))}
+      searchInput.addEventListener('input', ()=>doSearch(searchInput.value)); clearSearch.addEventListener('click', ()=>{searchInput.value='';doSearch('')});
+
+      // hero read/bookmark
+      readHero.addEventListener('click', ()=>openArticle(1)); bookmarkHero.addEventListener('click', ()=>{const cur=getBookmarks(); if(!cur.includes(1)){cur.push(1);saveBookmarks(cur)}});
+
+      // admin create (client side)
+      const adminForm=document.getElementById('adminForm'); adminForm.addEventListener('submit',(e)=>{e.preventDefault();const newId=articles.length+1; const title=document.getElementById('aTitle').value; const cat=document.getElementById('aCategory').value; const content=document.getElementById('aContent').value; const item={id:newId,title,category:cat,date:new Date().toISOString().slice(0,10),lead:content.slice(0,80)+'...',content}; articles.unshift(item); renderList(articles); renderPopular(); alert('Article created (demo). It only exists locally in your browser.'); adminForm.reset();});
+
+      // subscribe demo
+      const subForm=document.getElementById('subscribeForm'); subForm.addEventListener('submit',(e)=>{e.preventDefault();document.getElementById('subMsg').textContent='Thanks! Subscribed (demo).'});
+
+      // initial render
+      renderList(articles);
+      renderPopular();
+      renderBookmarks();
+
+      // keyboard shortcut: b to toggle bookmarks panel visibility
+      document.addEventListener('keydown', (e)=>{if(e.key==='b'){const el=bookmarksEl; el.style.display = (el.style.display==='none') ? 'block' : 'none'}});
+
+      // close admin with Esc
+      document.addEventListener('keydown', (e)=>{if(e.key==='Escape'){adminPanel.classList.remove('open')}});
+
+    })();
+  </script>
+
+</body>
+</html>
